@@ -1,0 +1,98 @@
+// -*- mode: jsonc -*-
+{
+    "name": "main-bar",
+    "id": "main-bar",
+    "layer": "top",
+    "exclusive": true,
+    "passtrhough": false,
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 26, // Waybar height (to be removed for auto height)
+    "width": "", // Waybar width
+    "spacing": 0, // Gaps between modules
+    "margin": 0,
+    "fixed-center": true,
+    // Choose the order of the modules
+    "modules-left": [
+    ],
+    "modules-center": [
+        "hyprland/workspaces",
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "cpu",
+        "memory",
+        "clock"
+    ],
+    // Modules configuration
+    "hyprland/workspaces": {
+        "format": "{name}:{windows}",
+	"format-window-separator": ":",
+	"window-rewrite-default": "",
+	"window-rewrite": {
+		"title<.*youtube.*>": "", // Windows whose titles contain "youtube"
+		"class<firefox>": "", // Windows whose classes are "firefox"
+		"class<firefox> title<.*github.*>": "", // Windows whose class is "firefox" and title contains "github". Note that "class" always comes first."format": "{name}",
+                "class<kitty>": "",
+        },
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pwvucontrol"
+    },
+    "custom/media": {
+        "format": "{icon} {text}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+            "default": "🎜"
+        },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    },
+}
