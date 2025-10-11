@@ -11,6 +11,9 @@
     "spacing": 0, // Gaps between modules
     "margin": 0,
     "fixed-center": true,
+    "output": [
+        "DP-1"
+    ],
     // Choose the order of the modules
     "modules-left": [
     ],
