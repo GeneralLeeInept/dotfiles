@@ -347,3 +347,12 @@ label:focus {
 #tags button.urgent {
 	color: #E49186;
 }
+
+#custom-session {
+    padding: 0 10px;
+    margin: 0px;
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(192, 192, 192, 255);
+    border-radius: 5px;
+}

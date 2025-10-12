@@ -16,6 +16,7 @@
     ],
     // Choose the order of the modules
     "modules-left": [
+        "custom/session"
     ],
     "modules-center": [
         "hyprland/workspaces",
@@ -98,4 +99,9 @@
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
+    "custom/session": {
+        "format": "⏻",
+        "tooltip": false,
+        "on-click": "exec ~/.local/bin/start-wlogout.sh"
+    }
 }
