@@ -6,6 +6,9 @@ return {
         opts = {
             transparent = true,
         },
+        config = function()
+            vim.cmd.colorscheme("onedark")
+        end
     },
     {
         "nvim-lualine/lualine.nvim",
