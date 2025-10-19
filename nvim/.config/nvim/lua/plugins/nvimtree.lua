@@ -2,7 +2,7 @@ return {
     "nvim-tree/nvim-tree.lua",
     lazy = false,
     dependencies = {
-        "nvim-tree/nvim-web-devicons"
+        "nvim-tree/nvim-web-devicons",
     },
     config = function()
         require("nvim-tree").setup()
@@ -10,7 +10,7 @@ return {
         local function nvimTreeFocusOrToggle()
             local nvimTree = require("nvim-tree.api")
             local currentBuf = vim.api.nvim_get_current_buf()
-            local currentBufFt = vim.api.nvim_get_option_value("filetype", { buf = currentBuf } )
+            local currentBufFt = vim.api.nvim_get_option_value("filetype", { buf = currentBuf })
             if currentBufFt == "NvimTree" then
                 nvimTree.tree.toggle()
             else
@@ -18,6 +18,6 @@ return {
             end
         end
 
-        vim.keymap.set('n', '<leader>e', nvimTreeFocusOrToggle, {})
+        vim.keymap.set("n", "<leader>e", nvimTreeFocusOrToggle, { desc = "Nvim Tree" })
     end,
 }

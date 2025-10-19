@@ -5,3 +5,4 @@ vim.o.shiftwidth = 4
 vim.o.wrap = false
 vim.o.expandtab = true
 vim.o.winborder = 'rounded'
+vim.o.signcolumn = 'yes'

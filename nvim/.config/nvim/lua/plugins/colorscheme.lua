@@ -8,7 +8,7 @@ return {
         },
         config = function()
             vim.cmd.colorscheme("onedark")
-        end
+        end,
     },
     {
         "nvim-lualine/lualine.nvim",
@@ -16,7 +16,7 @@ return {
             "nvim-tree/nvim-web-devicons",
         },
         opts = {
-            theme = "onedark"
-        }
+            theme = "onedark",
+        },
     },
 }
